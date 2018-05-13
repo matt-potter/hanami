@@ -1,7 +1,7 @@
-require 'concurrent'
-require 'hanami/application'
-require 'hanami/utils/class'
-require 'hanami/utils/string'
+require "concurrent"
+require "hanami/application"
+require "hanami/utils/class"
+require "hanami/utils/string"
 
 module Hanami
   # @api private
@@ -32,6 +32,7 @@ module Hanami
     #     # ...
     #   end
     def mount(app, options)
+      puts options
       mounted[app] = App.new(app, options.fetch(:at))
     end
 
@@ -201,7 +202,7 @@ module Hanami
     #     end
     #   end
     def environment(name)
-      yield if ENV['HANAMI_ENV'] == name.to_s
+      yield if ENV["HANAMI_ENV"] == name.to_s
     end
 
     private
